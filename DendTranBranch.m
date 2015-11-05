@@ -50,11 +50,11 @@ if length(TnmdaOnVec)~=length(AOnVec)
     error('TnmdaOnVec and AOnVec must be the same length')
 end
 
-if Bu<=Bl
+if BU<=BL
     error('The upper boundary (Bu) must be strictly greater than the lower boundary (Bl)')
 end
 
-if or(Au>0,Al>0)
+if or(AU<=0,AL<=0)
     error('Curvatures should be positive')
 end
 
