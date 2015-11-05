@@ -4,7 +4,7 @@ function [ PhiMat] = LengthMat(TotDist,LengthConstant)
 
 %TotDist is the row vector of distances from each synapse to the soma
 
-n=length(Dist); %Number of input sites
+n=length(TotDist); %Number of input sites
 
 %As in paper, the LengthConstant for contributiing in spike generation is
 %halved to reflect the greater spatial dependence of contribution to spikes
