@@ -36,6 +36,32 @@ function [DendOut] = DendTranBranch(Input, BU, BL, AU, AL, Distance, Rm, gNMDA, 
 %AOnVec is the corresponding row vector of coefficient weights (between 0 and 1)
 
 
+
+%   ERROR TESTING
+if and(size(Input,2)~=length(Distance),size(Input,1)==length(Distance))
+    error('Input is one column per synapse, Distance is one element per synapse')
+end
+
+if size(Input,2)~=length(Distance)
+    error('Distance must have one element per synapse: The first is distance to branch point, all others are spacing from previous synapse')
+end
+
+if length(TnmdaOnVec)~=length(AOnVec)
+    error('TnmdaOnVec and AOnVec must be the same length')
+end
+
+if Bu<=Bl
+    error('The upper boundary (Bu) must be strictly greater than the lower boundary (Bl)')
+end
+
+if or(Au>0,Al>0)
+    error('Curvatures should be positive')
+end
+
+
+
+
+
 n=length(Distance); %Number of input sites
 Nin=size(Input,1); %Number of input cases
 
