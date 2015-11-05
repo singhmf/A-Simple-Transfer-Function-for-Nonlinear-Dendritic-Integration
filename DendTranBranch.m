@@ -53,7 +53,7 @@ nonlocal=(PhiArray*Input')'; %Gives spatially decayed inputs to other sites.
 
 GluTrue=Input>0; %Boolean matrix used to restrict spike generation to glutamate-activated synapses (Non-zero input)
 
-Spikes=spike(Input,nonlocal,GluTrue, Tm, DecayConst, Rm, gNMDA, Enmda, NMDAks, NMDAmid, TnmdaOnVec, AOnVec); %Generate spiking (nonlinear) components
+Spikes=Spike(Input,nonlocal,GluTrue, Tm,Rm, gNMDA, Enmda, NMDAks, NMDAmid, TnmdaOnVec, AOnVec, ISI); %Generate spiking (nonlinear) components
 
 if ISI>0
     Linear=Input*(1+exp(-ISI/Tm)); %Double Pulse Contribution to fast currents
