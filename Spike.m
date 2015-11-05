@@ -1,6 +1,6 @@
 function [Spike] = Spike(Input,nonlocal,GluTrue, Tm, Rm, gNMDA, Enmda, NMDAks, NMDAmid, TnmdaOnVec, AOnVec, ISI)
 %Spike Generation Function, with input variables as defined in DendTranBranch
-TDecay=AOnVec'*Tm*((TnmdaOnVec+Tm).^-1); %Expected local temporal decay from Equation 4
+TDecay=AOnVec*Tm*((TnmdaOnVec+Tm).^-1)'; %Expected local temporal decay from Equation 4
 
 Depol1=Input*TDecay+nonlocal; %Total depolarization at channel opening
 
